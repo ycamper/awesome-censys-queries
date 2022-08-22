@@ -62,6 +62,15 @@ services.http.response.html_title: "Emerson Site Supervisor"
 services.http.response.headers.set_cookie: "NethixSession"
 ```
 
+#### [ELNet Building Automation Controller](https://www.getelnet.com/product/elnet-mc/) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28services.http.response.headers.Server%3D%22CAL1.0%22+and+services.http.response.status_code%3A+200%29)
+
+```dsl
+same_service(
+    services.http.response.headers.Server="CAL1.0"
+    and services.http.response.status_code=200
+)
+```
+
 ### Security Applications
 
 #### Cobalt Strike Servers [&#x2192;](https://search.censys.io/search?resource=hosts&q=services.certificate%3A+%7B%2264257fc0fac31c01a5ccd816c73ea86e639260da1604d04db869bb603c2886e6%22%2C+%2287f2085c32b6a2cc709b365f55873e207a9caa10bffecf2fd16d3cf9d94d390c%22%7D+or+services.tls.certificates.leaf_data.issuer.common_name%3A+%22Major+Cobalt+Strike%22+or+services.tls.certificates.leaf_data.subject.common_name%3A+%22Major+Cobalt+Strike%22+or+services.jarm.fingerprint%3A+%7B%2207d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1%22%2C+%2207d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2%22%7D)
@@ -261,6 +270,16 @@ services.http.response.body: "<h2>vmagent</h2>"
 ```
 
 
+#### MOBOTIX Security Camera (NO-AUTH) [&#x2192;](https://search.censys.io/search?resource=hosts&sort=RELEVANCE&per_page=25&virtual_hosts=EXCLUDE&q=same_service%28%28services.http.response.html_tags%3D%22%3Cmeta+name%3D%27publisher%27+content%3D%27MOBOTIX+AG%2C+Germany%27+%2F%3E%22%29+and+services.http.request.uri%3D%22*%2Fcontrol%2Fuserimage.html%22+and+services.http.response.status_code%3A+200%29+) 
+
+
+```dsl
+same_service(
+    (services.http.response.html_tags="<meta name='publisher' content='MOBOTIX AG, Germany' />")
+    and services.http.request.uri="*/control/userimage.html"
+    and services.http.response.status_code: 200
+)
+```
 
 ## License
 
